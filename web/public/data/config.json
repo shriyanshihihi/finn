@@ -1,0 +1,172 @@
+{
+ "holdings": [
+  {
+   "symbol": "NORTHWIND",
+   "sector": "Cables & wires",
+   "name": "Northwind Cables Ltd (sample)"
+  },
+  {
+   "symbol": "KESTREL",
+   "sector": "Electronics manufacturing",
+   "name": "Kestrel Electronics Ltd (sample)"
+  },
+  {
+   "symbol": "HARBOUR",
+   "sector": "NBFC",
+   "name": "Harbour Finance Ltd (sample)"
+  },
+  {
+   "symbol": "SUMMIT",
+   "sector": "Pharma",
+   "name": "Summit Pharma Ltd (sample)"
+  },
+  {
+   "symbol": "BLUEPEAK",
+   "sector": "Consumer",
+   "name": "Bluepeak Paints Ltd (sample)"
+  },
+  {
+   "symbol": "ORBIT",
+   "sector": "IT services",
+   "name": "Orbit Infotech Ltd (sample)"
+  },
+  {
+   "symbol": "TALLGRASS",
+   "sector": "FMCG",
+   "name": "Tallgrass Foods Ltd (sample)"
+  },
+  {
+   "symbol": "IRONBRIDGE",
+   "sector": "Capital goods",
+   "name": "Ironbridge Engineering Ltd (sample)"
+  }
+ ],
+ "research": [
+  {
+   "symbol": "NORTHWIND",
+   "name": "Northwind Cables Ltd (sample)"
+  },
+  {
+   "symbol": "KESTREL",
+   "name": "Kestrel Electronics Ltd (sample)"
+  }
+ ],
+ "alerts": {
+  "volume_multiple": 2.0,
+  "move_pct": 4.0,
+  "overrides": {
+   "KESTREL": {
+    "move_pct": 7.0
+   }
+  }
+ },
+ "watched_categories": [
+  "results",
+  "management_change",
+  "M&A",
+  "fund_raise",
+  "pledging",
+  "insider_trading",
+  "credit_rating",
+  "litigation",
+  "capex"
+ ],
+ "pillars": {
+  "NORTHWIND": [
+   {
+    "id": "nw-growth",
+    "label": "Revenue keeps growing fast",
+    "type": "metric",
+    "metric": "revenue_yoy",
+    "op": ">=",
+    "value": 15
+   },
+   {
+    "id": "nw-margin",
+    "label": "Margins hold at 14%",
+    "type": "metric",
+    "metric": "ebitda_margin",
+    "op": ">=",
+    "value": 14
+   },
+   {
+    "id": "nw-pledge",
+    "label": "Promoter doesn't pledge",
+    "type": "event",
+    "category": "pledging"
+   }
+  ],
+  "KESTREL": [
+   {
+    "id": "ks-cash",
+    "label": "Profits turn into cash",
+    "type": "metric",
+    "metric": "cfo_to_pat",
+    "op": ">=",
+    "value": 0.7
+   }
+  ],
+  "HARBOUR": [
+   {
+    "id": "hb-pat",
+    "label": "Earnings keep compounding",
+    "type": "metric",
+    "metric": "pat_yoy",
+    "op": ">=",
+    "value": 10
+   },
+   {
+    "id": "hb-mgmt",
+    "label": "Leadership stays stable",
+    "type": "event",
+    "category": "management_change"
+   }
+  ],
+  "TALLGRASS": [
+   {
+    "id": "tg-pledge",
+    "label": "Promoter doesn't pledge",
+    "type": "event",
+    "category": "pledging"
+   }
+  ]
+ },
+ "categories": [
+  "results",
+  "M&A",
+  "fund_raise",
+  "management_change",
+  "litigation",
+  "insider_trading",
+  "earnings_call",
+  "investor_meetings",
+  "credit_rating",
+  "dividend",
+  "bonus_split",
+  "capex",
+  "press_release",
+  "postal_ballot",
+  "agm_egm",
+  "pledging",
+  "unclassified"
+ ],
+ "default_material": {
+  "results": true,
+  "M&A": true,
+  "fund_raise": true,
+  "management_change": true,
+  "litigation": true,
+  "insider_trading": true,
+  "earnings_call": false,
+  "investor_meetings": false,
+  "credit_rating": true,
+  "dividend": true,
+  "bonus_split": true,
+  "capex": true,
+  "press_release": false,
+  "postal_ballot": false,
+  "agm_egm": false,
+  "pledging": true,
+  "unclassified": false
+ }
+}

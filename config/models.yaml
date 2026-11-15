@@ -1,0 +1,27 @@
+# Which model does which job. Swap a model by changing one line.
+# If a model name stops working, open Google AI Studio / Groq console and paste a current one.
+#
+# Prices are approximate paid-tier list prices converted to rupees (1 USD ~ 88 INR).
+# On the free tier the real bill is zero; the app shows this estimate so the
+# cost of each step stays visible.
+
+cheap:          # bulk work: leftover classification, one-line summaries, promise extraction
+  provider: gemini
+  model: gemini-2.5-flash
+  inr_per_1m_input: 26
+  inr_per_1m_output: 220
+
+strong:         # judgment only: promise verdicts that code can't settle, bull vs bear
+  provider: gemini
+  model: gemini-2.5-pro
+  inr_per_1m_input: 110
+  inr_per_1m_output: 880
+
+fallback:       # used when the cheap model is rate-limited or down
+  provider: groq
+  model: llama-3.3-70b-versatile
+  inr_per_1m_input: 52
+  inr_per_1m_output: 70
+
+# bump this when you change a prompt, so old cached answers are not reused
+prompt_version: 1

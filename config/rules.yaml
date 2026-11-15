@@ -1,0 +1,75 @@
+# Filing classifier. Rules run top to bottom and the first match wins.
+# `match` is a regex tested against "<exchange category> | <subject>" in lowercase.
+# `material: false` means the filing is routine paperwork and gets collapsed in the app.
+# Anything no rule matches goes to the cheap model in one batched call.
+
+rules:
+  # --- routine paperwork first, so words like "acquisition" inside them don't mislead later rules
+  - {match: 'trading window', category: unclassified, material: false}
+  - {match: 'newspaper|publication of|advertisement', category: unclassified, material: false}
+  - {match: 'loss of share|duplicate share|share certificate|transmission of shares', category: unclassified, material: false}
+  - {match: 'regulation 74\(5\)|reg\.? ?74|reconciliation of share capital|investor complaints|compliance certificate|secretarial compliance|certificate under sebi', category: unclassified, material: false}
+  - {match: 'brsr|business responsibility|sustainability report|esg', category: unclassified, material: false}
+  - {match: 'esop|esos|esps|employee stock|allotment of equity shares under', category: unclassified, material: false}
+  - {match: 'change in (registrar|rta)|registrar and share transfer', category: unclassified, material: false}
+  - {match: 'statutory auditor|secretarial auditor|cost auditor', category: unclassified, material: false}
+
+  # --- earnings calls and meetings
+  - {match: 'transcript', category: earnings_call, material: true}
+  - {match: 'audio|video recording|recording of', category: earnings_call, material: false}
+  - {match: 'earnings call|conference call|con\. ?call|concall|investor call', category: earnings_call, material: false}
+  - {match: 'analyst|institutional investor|investor meet|investors meet|investor conference|roadshow|one-on-one', category: investor_meetings, material: false}
+
+  # --- results
+  - {match: 'board meeting intimation|intimation of board meeting|prior intimation|to consider', category: results, material: false}
+  - {match: 'investor presentation|earnings presentation|results presentation', category: results, material: false}
+  - {match: 'financial result|unaudited|audited|integrated filing.*financ|quarterly result|results for the (quarter|half|year)', category: results, material: true}
+  # a bare "Outcome of Board Meeting" can be anything (results, fund raise, dividend): later rules or the model decide
+
+  # --- management
+  - {match: 'company secretary|compliance officer', category: management_change, material: false}
+  - {match: 're-?appointment', category: management_change, material: false}
+  - {match: 'change in directorate|change in management|key managerial|\bkmp\b|resignation|appointment|cessation|chief executive|chief financial|\bceo\b|\bcfo\b|managing director|whole[- ]?time director', category: management_change, material: true}
+
+  # --- promoter / insider activity
+  - {match: 'pledge|encumbrance|invocation', category: pledging, material: true}
+  - {match: 'insider trading|regulation 7\(2\)|reg\.? ?7\(2\)|prohibition of insider|takeover regulations|\bsast\b|regulation 29|regulation 31', category: insider_trading, material: true}
+
+  # --- corporate actions and capital
+  - {match: 'qualified institutional|\bqip\b|rights issue|preferential (issue|allotment)|buy-?back|commercial paper|non-convertible debenture|\bncd|fund rais|raising of funds|warrants', category: fund_raise, material: true}
+  - {match: 'amalgamation|merger|demerger|scheme of arrangement|joint venture|acquisition|acquire|stake sale|divest|disinvest|incorporation of (a )?(wholly owned )?subsidiary', category: M&A, material: true}
+  - {match: 'reaffirm', category: credit_rating, material: false}
+  - {match: 'credit rating|\brating', category: credit_rating, material: true}
+  - {match: 'litigation|dispute|regulatory action|penalty|show cause|order passed|orders passed|tax demand|\bgst\b|income tax|insolvency|nclt|sebi order|\bfine\b|warning letter|usfda|import alert', category: litigation, material: true}
+  - {match: 'record date|book closure', category: dividend, material: false}
+  - {match: 'dividend', category: dividend, material: true}
+  - {match: 'bonus|stock split|sub-?division', category: bonus_split, material: true}
+  - {match: 'capacity expansion|capex|capital expenditure|new plant|new facility|commissioning|commercial production|greenfield|brownfield', category: capex, material: true}
+  - {match: 'annual general meeting|\bagm\b|extra-?ordinary general meeting|\begm\b|scrutini[sz]er|voting results', category: agm_egm, material: false}
+  - {match: 'postal ballot|e-?voting', category: postal_ballot, material: false}
+
+  # --- press releases: material only if they carry a number (see value_pattern)
+  - {match: 'press release|media release|order|contract|launch|partnership|clarification|spurt in volume|update', category: press_release, material: value}
+
+# press_release items are material only when the subject or text mentions money
+value_pattern: '(rs\.?|₹|inr|usd|us\$|\$)\s?[\d,.]+|\d[\d,.]*\s?(crore|crores|cr\b|lakh|mn\b|million|bn\b|billion)'
+
+# used for anything the cheap model classifies (no rule matched)
+default_material:
+  results: true
+  M&A: true
+  fund_raise: true
+  management_change: true
+  litigation: true
+  insider_trading: true
+  earnings_call: false
+  investor_meetings: false
+  credit_rating: true
+  dividend: true
+  bonus_split: true
+  capex: true
+  press_release: false
+  postal_ballot: false
+  agm_egm: false
+  pledging: true
+  unclassified: false

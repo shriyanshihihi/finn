@@ -1,0 +1,872 @@
+{
+ "symbol": "NORTHWIND",
+ "company": "Northwind Cables Ltd (sample)",
+ "as_of": "2026-11-15T16:20:43+05:30",
+ "view": "consolidated",
+ "company_type": "corporate",
+ "screener_url": "https://www.screener.in/company/NORTHWIND/consolidated/",
+ "about": "Sample Cables makes wires and cables and fast moving electrical goods.",
+ "ledger": {
+  "symbol": "NORTHWIND",
+  "company": "Northwind Cables Ltd (sample)",
+  "as_of": "2026-11-15T16:20:43+05:30",
+  "transcripts": [
+   {
+    "date_label": "Oct 2026",
+    "quarter": "Q2 FY27",
+    "url": "https://example.com/t-oct26.pdf",
+    "readable": true,
+    "pages": 3,
+    "error": null
+   },
+   {
+    "date_label": "Jul 2026",
+    "quarter": "Q1 FY27",
+    "url": "https://example.com/t-jul26.pdf",
+    "readable": true,
+    "pages": 4,
+    "error": null
+   },
+   {
+    "date_label": "May 2026",
+    "quarter": "Q4 FY26",
+    "url": "https://example.com/t-may26.pdf",
+    "readable": true,
+    "pages": 3,
+    "error": null
+   },
+   {
+    "date_label": "Jan 2026",
+    "quarter": "Q3 FY26",
+    "url": "https://example.com/t-jan26.pdf",
+    "readable": true,
+    "pages": 3,
+    "error": null
+   }
+  ],
+  "threads": [
+   {
+    "id": "NORTHWIND-1",
+    "metric": "Revenue growth",
+    "metric_key": "revenue_growth",
+    "unit": "%",
+    "deadline_fy": 2026,
+    "deadline_q": null,
+    "deadline": "FY26",
+    "target_text": "at least 12%",
+    "target_low": 12.0,
+    "target_high": null,
+    "first_said": "Q3 FY26",
+    "times_said": 1,
+    "revised": false,
+    "revision_direction": null,
+    "quietly_dropped": false,
+    "speakers": [
+     "Arjun Mehta"
+    ],
+    "mentions": [
+     {
+      "quarter_said": "Q3 FY26",
+      "call_date": "Jan 2026",
+      "target_text": "at least 12%",
+      "target_low": 12.0,
+      "target_high": null,
+      "speaker_name": "Arjun Mehta",
+      "speaker_role": "Managing Director",
+      "verbatim_quote": "We expect revenue growth of at least 12% for FY26.",
+      "page": 2,
+      "transcript_url": "https://example.com/t-jan26.pdf"
+     }
+    ],
+    "status": "kept",
+    "actual_text": "+13.2% in FY26",
+    "reason": "Target at least 12%; delivered +13.2% in FY26.",
+    "settled_by": "code",
+    "display_status": "kept"
+   },
+   {
+    "id": "NORTHWIND-2",
+    "metric": "EBITDA margin",
+    "metric_key": "ebitda_margin",
+    "unit": "%",
+    "deadline_fy": 2028,
+    "deadline_q": null,
+    "deadline": "FY28",
+    "target_text": "13%",
+    "target_low": 13.0,
+    "target_high": null,
+    "first_said": "Q3 FY26",
+    "times_said": 3,
+    "revised": true,
+    "revision_direction": "down",
+    "quietly_dropped": false,
+    "speakers": [
+     "Ravi Shah"
+    ],
+    "mentions": [
+     {
+      "quarter_said": "Q3 FY26",
+      "call_date": "Jan 2026",
+      "target_text": "14%",
+      "target_low": 14.0,
+      "target_high": null,
+      "speaker_name": "Ravi Shah",
+      "speaker_role": "Chief Financial Officer",
+      "verbatim_quote": "We are targeting EBITDA margin of 14% by FY28.",
+      "page": 3,
+      "transcript_url": "https://example.com/t-jan26.pdf"
+     },
+     {
+      "quarter_said": "Q4 FY26",
+      "call_date": "May 2026",
+      "target_text": "14%",
+      "target_low": 14.0,
+      "target_high": null,
+      "speaker_name": "Ravi Shah",
+      "speaker_role": "Chief Financial Officer",
+      "verbatim_quote": "We remain on track for 14% EBITDA margin by FY28.",
+      "page": 3,
+      "transcript_url": "https://example.com/t-may26.pdf"
+     },
+     {
+      "quarter_said": "Q2 FY27",
+      "call_date": "Oct 2026",
+      "target_text": "13%",
+      "target_low": 13.0,
+      "target_high": null,
+      "speaker_name": "Ravi Shah",
+      "speaker_role": "Chief Financial Officer",
+      "verbatim_quote": "We now expect EBITDA margin of 13% by FY28.",
+      "page": 2,
+      "transcript_url": "https://example.com/t-oct26.pdf"
+     }
+    ],
+    "status": "pending",
+    "actual_text": "",
+    "reason": "",
+    "settled_by": "code",
+    "progress": "",
+    "display_status": "revised"
+   },
+   {
+    "id": "NORTHWIND-3",
+    "metric": "B2C capacity",
+    "metric_key": "capacity",
+    "unit": "x",
+    "deadline_fy": 2028,
+    "deadline_q": null,
+    "deadline": "FY28",
+    "target_text": "2x",
+    "target_low": 2.0,
+    "target_high": null,
+    "first_said": "Q3 FY26",
+    "times_said": 1,
+    "revised": false,
+    "revision_direction": null,
+    "quietly_dropped": true,
+    "speakers": [
+     "Arjun Mehta"
+    ],
+    "mentions": [
+     {
+      "quarter_said": "Q3 FY26",
+      "call_date": "Jan 2026",
+      "target_text": "2x",
+      "target_low": 2.0,
+      "target_high": null,
+      "speaker_name": "Arjun Mehta",
+      "speaker_role": "Managing Director",
+      "verbatim_quote": "We will double our B2C capacity by FY28.",
+      "page": 3,
+      "transcript_url": "https://example.com/t-jan26.pdf"
+     }
+    ],
+    "status": "pending",
+    "actual_text": "",
+    "reason": "",
+    "settled_by": "code",
+    "progress": "",
+    "display_status": "dropped"
+   },
+   {
+    "id": "NORTHWIND-4",
+    "metric": "EBITDA margin",
+    "metric_key": "ebitda_margin",
+    "unit": "%",
+    "deadline_fy": 2027,
+    "deadline_q": 2,
+    "deadline": "Q2 FY27",
+    "target_text": "13.5%",
+    "target_low": 13.5,
+    "target_high": null,
+    "first_said": "Q4 FY26",
+    "times_said": 1,
+    "revised": false,
+    "revision_direction": null,
+    "quietly_dropped": false,
+    "speakers": [
+     "Ravi Shah"
+    ],
+    "mentions": [
+     {
+      "quarter_said": "Q4 FY26",
+      "call_date": "May 2026",
+      "target_text": "13.5%",
+      "target_low": 13.5,
+      "target_high": null,
+      "speaker_name": "Ravi Shah",
+      "speaker_role": "Chief Financial Officer",
+      "verbatim_quote": "For Q2 FY27 we expect EBITDA margin of 13.5%.",
+      "page": 2,
+      "transcript_url": "https://example.com/t-may26.pdf"
+     }
+    ],
+    "status": "missed",
+    "actual_text": "13.4% in Q2 FY27",
+    "reason": "Target 13.5%; delivered 13.4% in Q2 FY27, short by 0.1pp.",
+    "settled_by": "code",
+    "display_status": "missed"
+   },
+   {
+    "id": "NORTHWIND-5",
+    "metric": "Revenue growth",
+    "metric_key": "revenue_growth",
+    "unit": "%",
+    "deadline_fy": 2027,
+    "deadline_q": 1,
+    "deadline": "Q1 FY27",
+    "target_text": "at least 18% YoY",
+    "target_low": 18.0,
+    "target_high": null,
+    "first_said": "Q4 FY26",
+    "times_said": 1,
+    "revised": false,
+    "revision_direction": null,
+    "quietly_dropped": false,
+    "speakers": [
+     "Arjun Mehta"
+    ],
+    "mentions": [
+     {
+      "quarter_said": "Q4 FY26",
+      "call_date": "May 2026",
+      "target_text": "at least 18% YoY",
+      "target_low": 18.0,
+      "target_high": null,
+      "speaker_name": "Arjun Mehta",
+      "speaker_role": "",
+      "verbatim_quote": "We expect Q1 FY27 revenue to grow at least 18% year on year.",
+      "page": 2,
+      "transcript_url": "https://example.com/t-may26.pdf"
+     }
+    ],
+    "status": "missed",
+    "actual_text": "+15.1% YoY in Q1 FY27",
+    "reason": "Target at least 18% YoY; delivered +15.1% YoY in Q1 FY27, short by 2.9pp.",
+    "settled_by": "code",
+    "display_status": "missed"
+   },
+   {
+    "id": "NORTHWIND-6",
+    "metric": "Revenue growth",
+    "metric_key": "revenue_growth",
+    "unit": "%",
+    "deadline_fy": 2027,
+    "deadline_q": null,
+    "deadline": "FY27",
+    "target_text": "15%",
+    "target_low": 15.0,
+    "target_high": null,
+    "first_said": "Q1 FY27",
+    "times_said": 2,
+    "revised": false,
+    "revision_direction": null,
+    "quietly_dropped": false,
+    "speakers": [
+     "Arjun Mehta"
+    ],
+    "mentions": [
+     {
+      "quarter_said": "Q1 FY27",
+      "call_date": "Jul 2026",
+      "target_text": "15%",
+      "target_low": 15.0,
+      "target_high": null,
+      "speaker_name": "Arjun Mehta",
+      "speaker_role": "Managing Director",
+      "verbatim_quote": "We expect revenue growth of 15% for FY27.",
+      "page": 2,
+      "transcript_url": "https://example.com/t-jul26.pdf"
+     },
+     {
+      "quarter_said": "Q2 FY27",
+      "call_date": "Oct 2026",
+      "target_text": "15%",
+      "target_low": 15.0,
+      "target_high": null,
+      "speaker_name": "Arjun Mehta",
+      "speaker_role": "Managing Director",
+      "verbatim_quote": "We expect revenue growth of 15% for FY27.",
+      "page": 3,
+      "transcript_url": "https://example.com/t-oct26.pdf"
+     }
+    ],
+    "status": "pending",
+    "actual_text": "",
+    "reason": "",
+    "settled_by": "code",
+    "progress": "H1 FY27: +15.1%",
+    "display_status": "pending"
+   },
+   {
+    "id": "NORTHWIND-7",
+    "metric": "Capex",
+    "metric_key": "capex",
+    "unit": "crore",
+    "deadline_fy": 2027,
+    "deadline_q": null,
+    "deadline": "FY27",
+    "target_text": "Rs 600 crore",
+    "target_low": 600.0,
+    "target_high": null,
+    "first_said": "Q1 FY27",
+    "times_said": 1,
+    "revised": false,
+    "revision_direction": null,
+    "quietly_dropped": false,
+    "speakers": [
+     "Ravi Shah"
+    ],
+    "mentions": [
+     {
+      "quarter_said": "Q1 FY27",
+      "call_date": "Jul 2026",
+      "target_text": "Rs 600 crore",
+      "target_low": 600.0,
+      "target_high": null,
+      "speaker_name": "Ravi Shah",
+      "speaker_role": "Chief Financial Officer",
+      "verbatim_quote": "Capex for FY27 will be Rs 600 crore.",
+      "page": 4,
+      "transcript_url": "https://example.com/t-jul26.pdf"
+     }
+    ],
+    "status": "pending",
+    "actual_text": "",
+    "reason": "",
+    "settled_by": "code",
+    "progress": "",
+    "display_status": "pending"
+   },
+   {
+    "id": "NORTHWIND-8",
+    "metric": "Halol plant commissioning",
+    "metric_key": "capacity",
+    "unit": "",
+    "deadline_fy": 2027,
+    "deadline_q": 3,
+    "deadline": "Q3 FY27",
+    "target_text": "commissioned",
+    "target_low": null,
+    "target_high": null,
+    "first_said": "Q2 FY27",
+    "times_said": 1,
+    "revised": false,
+    "revision_direction": null,
+    "quietly_dropped": false,
+    "speakers": [
+     "Arjun Mehta"
+    ],
+    "mentions": [
+     {
+      "quarter_said": "Q2 FY27",
+      "call_date": "Oct 2026",
+      "target_text": "commissioned",
+      "target_low": null,
+      "target_high": null,
+      "speaker_name": "Arjun Mehta",
+      "speaker_role": "Managing Director",
+      "verbatim_quote": "The new Halol plant will be commissioned in Q3 FY27.",
+      "page": 3,
+      "transcript_url": "https://example.com/t-oct26.pdf"
+     }
+    ],
+    "status": "pending",
+    "actual_text": "",
+    "reason": "",
+    "settled_by": "code",
+    "progress": "",
+    "display_status": "pending"
+   }
+  ],
+  "credibility": {
+   "kept": 1,
+   "missed": 2,
+   "settled": 3,
+   "score": 0.33
+  },
+  "counts": {
+   "kept": 1,
+   "missed": 2,
+   "pending": 3,
+   "revised": 1,
+   "dropped": 1,
+   "unverifiable": 0
+  },
+  "summary": "Growth promises are broadly being met: FY26 growth beat the 12% target and FY27 is running at 15%. Margins are the weak spot: the Q2 FY27 margin target was missed, the FY28 target was cut from 14% to 13%, and the plan to double B2C capacity has not been mentioned since January.",
+  "stats": {
+   "tokens_full": 304,
+   "tokens_sent": 253,
+   "extracted": 11,
+   "dropped_quote_not_found": 0,
+   "calls": 4
+  }
+ },
+ "guidance": [
+  {
+   "id": "NORTHWIND-6",
+   "metric": "Revenue growth",
+   "target": "15%",
+   "deadline": "FY27",
+   "status": "pending",
+   "progress": "H1 FY27: +15.1%",
+   "said_by": "Arjun Mehta",
+   "said": "Q2 FY27",
+   "quote": "We expect revenue growth of 15% for FY27.",
+   "page": 3,
+   "transcript_url": "https://example.com/t-oct26.pdf"
+  },
+  {
+   "id": "NORTHWIND-7",
+   "metric": "Capex",
+   "target": "Rs 600 crore",
+   "deadline": "FY27",
+   "status": "pending",
+   "progress": "",
+   "said_by": "Ravi Shah",
+   "said": "Q1 FY27",
+   "quote": "Capex for FY27 will be Rs 600 crore.",
+   "page": 4,
+   "transcript_url": "https://example.com/t-jul26.pdf"
+  },
+  {
+   "id": "NORTHWIND-2",
+   "metric": "EBITDA margin",
+   "target": "13%",
+   "deadline": "FY28",
+   "status": "revised",
+   "progress": "",
+   "said_by": "Ravi Shah",
+   "said": "Q2 FY27",
+   "quote": "We now expect EBITDA margin of 13% by FY28.",
+   "page": 2,
+   "transcript_url": "https://example.com/t-oct26.pdf"
+  },
+  {
+   "id": "NORTHWIND-3",
+   "metric": "B2C capacity",
+   "target": "2x",
+   "deadline": "FY28",
+   "status": "dropped",
+   "progress": "",
+   "said_by": "Arjun Mehta",
+   "said": "Q3 FY26",
+   "quote": "We will double our B2C capacity by FY28.",
+   "page": 3,
+   "transcript_url": "https://example.com/t-jan26.pdf"
+  },
+  {
+   "id": "NORTHWIND-8",
+   "metric": "Halol plant commissioning",
+   "target": "commissioned",
+   "deadline": "Q3 FY27",
+   "status": "pending",
+   "progress": "",
+   "said_by": "Arjun Mehta",
+   "said": "Q2 FY27",
+   "quote": "The new Halol plant will be commissioned in Q3 FY27.",
+   "page": 3,
+   "transcript_url": "https://example.com/t-oct26.pdf"
+  }
+ ],
+ "financial_snapshot": {
+  "quarter": "Q2 FY27",
+  "tiles": [
+   {
+    "label": "Revenue Q2 FY27",
+    "value": 7450.0,
+    "unit": "cr",
+    "delta": 15.0,
+    "delta_label": "YoY"
+   },
+   {
+    "label": "EBITDA margin",
+    "value": 13.4,
+    "unit": "%",
+    "delta": -0.1,
+    "delta_label": "pp YoY"
+   },
+   {
+    "label": "PAT Q2 FY27",
+    "value": 712.0,
+    "unit": "cr",
+    "delta": 14.8,
+    "delta_label": "YoY"
+   },
+   {
+    "label": "Revenue TTM",
+    "value": 27236.0,
+    "unit": "cr"
+   },
+   {
+    "label": "PAT TTM",
+    "value": 2575.0,
+    "unit": "cr"
+   },
+   {
+    "label": "ROCE",
+    "value": 29.0,
+    "unit": "%"
+   },
+   {
+    "label": "Debt / equity",
+    "value": 0.01,
+    "unit": "x",
+    "note": null
+   },
+   {
+    "label": "Market cap",
+    "value": 102345.0,
+    "unit": "cr"
+   }
+  ],
+  "source": "screener.in quarterly + annual tables"
+ },
+ "trajectory": {
+  "years": [
+   {
+    "fy": "FY22",
+    "revenue": 12204.0,
+    "ebitda": 1425.0,
+    "margin": 11.7,
+    "pat": 916.0
+   },
+   {
+    "fy": "FY23",
+    "revenue": 14108.0,
+    "ebitda": 1852.0,
+    "margin": 13.1,
+    "pat": 1282.0
+   },
+   {
+    "fy": "FY24",
+    "revenue": 18039.0,
+    "ebitda": 2442.0,
+    "margin": 13.5,
+    "pat": 1803.0
+   },
+   {
+    "fy": "FY25",
+    "revenue": 22408.0,
+    "ebitda": 2960.0,
+    "margin": 13.2,
+    "pat": 2045.0
+   },
+   {
+    "fy": "FY26",
+    "revenue": 25369.0,
+    "ebitda": 3376.0,
+    "margin": 13.3,
+    "pat": 2385.0
+   }
+  ],
+  "quarters": [
+   {
+    "q": "Q1 FY26",
+    "revenue": 5906.0,
+    "margin": 13.0,
+    "pat": 537.0
+   },
+   {
+    "q": "Q2 FY26",
+    "revenue": 6477.0,
+    "margin": 13.5,
+    "pat": 620.0
+   },
+   {
+    "q": "Q3 FY26",
+    "revenue": 6000.0,
+    "margin": 12.5,
+    "pat": 522.0
+   },
+   {
+    "q": "Q4 FY26",
+    "revenue": 6986.0,
+    "margin": 14.1,
+    "pat": 706.0
+   },
+   {
+    "q": "Q1 FY27",
+    "revenue": 6800.0,
+    "margin": 13.2,
+    "pat": 635.0
+   },
+   {
+    "q": "Q2 FY27",
+    "revenue": 7450.0,
+    "margin": 13.4,
+    "pat": 712.0
+   }
+  ],
+  "headline": [
+   {
+    "label": "Revenue, 3-yr CAGR",
+    "value": 21.6,
+    "unit": "%",
+    "tone": "up"
+   },
+   {
+    "label": "PAT, 3-yr CAGR",
+    "value": 23.0,
+    "unit": "%",
+    "tone": "up"
+   },
+   {
+    "label": "Margin change, 3 yrs",
+    "value": 0.2,
+    "unit": "pp",
+    "tone": "flat"
+   }
+  ],
+  "source": "screener.in annual + quarterly tables"
+ },
+ "balance_sheet": {
+  "years": [
+   {
+    "fy": "FY22",
+    "borrowings": 91.0,
+    "equity": 6523.0,
+    "de": 0.01,
+    "wc_days": 60.0,
+    "ccc": 78.0,
+    "debtor_days": 40.0,
+    "cwip": null
+   },
+   {
+    "fy": "FY23",
+    "borrowings": 103.0,
+    "equity": 7710.0,
+    "de": 0.01,
+    "wc_days": 58.0,
+    "ccc": 74.0,
+    "debtor_days": 36.0,
+    "cwip": null
+   },
+   {
+    "fy": "FY24",
+    "borrowings": 176.0,
+    "equity": 9340.0,
+    "de": 0.02,
+    "wc_days": 62.0,
+    "ccc": 77.0,
+    "debtor_days": 36.0,
+    "cwip": null
+   },
+   {
+    "fy": "FY25",
+    "borrowings": 139.0,
+    "equity": 11141.0,
+    "de": 0.01,
+    "wc_days": 65.0,
+    "ccc": 80.0,
+    "debtor_days": 38.0,
+    "cwip": null
+   },
+   {
+    "fy": "FY26",
+    "borrowings": 150.0,
+    "equity": 12950.0,
+    "de": 0.01,
+    "wc_days": 66.0,
+    "ccc": 84.0,
+    "debtor_days": 40.0,
+    "cwip": null
+   }
+  ],
+  "note": null,
+  "source": "screener.in balance sheet + ratios"
+ },
+ "cash_quality": {
+  "years": [
+   {
+    "fy": "FY22",
+    "cfo": -40.0,
+    "pat": 916.0,
+    "ratio": -0.04,
+    "after_investing": -240.0
+   },
+   {
+    "fy": "FY23",
+    "cfo": 1640.0,
+    "pat": 1282.0,
+    "ratio": 1.28,
+    "after_investing": 640.0
+   },
+   {
+    "fy": "FY24",
+    "cfo": 1121.0,
+    "pat": 1803.0,
+    "ratio": 0.62,
+    "after_investing": 221.0
+   },
+   {
+    "fy": "FY25",
+    "cfo": 1640.0,
+    "pat": 2045.0,
+    "ratio": 0.8,
+    "after_investing": 340.0
+   },
+   {
+    "fy": "FY26",
+    "cfo": 2000.0,
+    "pat": 2385.0,
+    "ratio": 0.84,
+    "after_investing": 600.0
+   }
+  ],
+  "five_year_ratio": 0.75,
+  "verdict": "Part of the profit is getting stuck in working capital.",
+  "lender": false,
+  "source": "screener.in cash flow statement"
+ },
+ "business": {
+  "what_they_do": "Makes wires and cables, plus a smaller fast moving electrical goods (FMEG) business.",
+  "page": 2,
+  "segments": [
+   {
+    "name": "Wires and cables",
+    "detail": "About 88% of revenue; grew 16% this quarter",
+    "page": 2
+   },
+   {
+    "name": "FMEG",
+    "detail": "About 10% of revenue; grew 9% this quarter",
+    "page": 2
+   }
+  ],
+  "revenue_mix": "Wires and cables 88%, FMEG 10%",
+  "mix_page": 2,
+  "source": "Q2 FY27 earnings call",
+  "transcript_url": "https://example.com/t-oct26.pdf"
+ },
+ "bull_bear": {
+  "bull": [
+   {
+    "text": "Revenue has compounded at about 21% a year for three years with stable 13% margins.",
+    "source": "reported numbers"
+   },
+   {
+    "text": "FY26 growth beat management's own 12% target.",
+    "source": "Q3 FY26 call p.2"
+   },
+   {
+    "text": "Cash from operations covered 84% of profit over five years.",
+    "source": "reported numbers"
+   }
+  ],
+  "bear": [
+   {
+    "text": "Management cut its FY28 margin target from 14% to 13% within three calls.",
+    "source": "Q2 FY27 call p.2"
+   },
+   {
+    "text": "FMEG competition is rising and the company chose to hold prices.",
+    "source": "Q2 FY27 call p.3"
+   },
+   {
+    "text": "Cash conversion cycle stretched from 78 to 84 days.",
+    "source": "reported numbers"
+   }
+  ],
+  "pillars": [
+   {
+    "pillar_id": "nw-growth",
+    "bear": "H1 FY27 growth is 15.1%, right at the line; one weak quarter breaks it.",
+    "would_prove_wrong": "Next two quarters of reported numbers.",
+    "source": "Q2 FY27 call p.2",
+    "supported": true
+   },
+   {
+    "pillar_id": "nw-margin",
+    "bear": "Margin has been 13-14% for 6 quarters and management now guides 13% for FY28.",
+    "would_prove_wrong": "Two quarters above 14% EBITDA margin.",
+    "source": "Q2 FY27 call p.2",
+    "supported": true
+   },
+   {
+    "pillar_id": "nw-pledge",
+    "bear": "No pledging is visible in the material; no real bear case.",
+    "would_prove_wrong": "Next two quarters of reported numbers.",
+    "source": "Q2 FY27 call p.2",
+    "supported": false
+   }
+  ]
+ },
+ "pillars": [
+  {
+   "id": "nw-growth",
+   "label": "Revenue keeps growing fast",
+   "type": "metric",
+   "metric": "revenue_yoy",
+   "op": ">=",
+   "value": 15
+  },
+  {
+   "id": "nw-margin",
+   "label": "Margins hold at 14%",
+   "type": "metric",
+   "metric": "ebitda_margin",
+   "op": ">=",
+   "value": 14
+  },
+  {
+   "id": "nw-pledge",
+   "label": "Promoter doesn't pledge",
+   "type": "event",
+   "category": "pledging"
+  }
+ ],
+ "sources": {
+  "screener": "https://www.screener.in/company/NORTHWIND/consolidated/",
+  "transcripts": [
+   {
+    "label": "Q2 FY27 call (Oct 2026)",
+    "url": "https://example.com/t-oct26.pdf"
+   },
+   {
+    "label": "Q1 FY27 call (Jul 2026)",
+    "url": "https://example.com/t-jul26.pdf"
+   },
+   {
+    "label": "Q4 FY26 call (May 2026)",
+    "url": "https://example.com/t-may26.pdf"
+   },
+   {
+    "label": "Q3 FY26 call (Jan 2026)",
+    "url": "https://example.com/t-jan26.pdf"
+   }
+  ],
+  "annual_reports": [
+   {
+    "fy": 2026,
+    "label": "Annual report FY26",
+    "url": "https://www.bseindia.com/bseplus/AnnualReport/542652/ar2026.pdf"
+   },
+   {
+    "fy": 2025,
+    "label": "Annual report FY25",
+    "url": "https://www.bseindia.com/bseplus/AnnualReport/542652/ar2025.pdf"
+   }
+  ]
+ }
+}

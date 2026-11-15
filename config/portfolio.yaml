@@ -1,0 +1,79 @@
+# My mock portfolio. Change anything here and re-run `python -m pipeline.run_all`.
+# Thresholds, watched categories and pillars here are only the defaults:
+# all three can be changed inside the app (Settings) without re-running anything.
+
+holdings:
+  - {symbol: RELIANCE,   sector: Conglomerate}
+  - {symbol: HDFCBANK,   sector: Bank}
+  - {symbol: BAJFINANCE, sector: NBFC}
+  - {symbol: TCS,        sector: IT services}
+  - {symbol: ITC,        sector: FMCG}
+  - {symbol: LT,         sector: Capital goods}
+  - {symbol: SUNPHARMA,  sector: Pharma}
+  - {symbol: ASIANPAINT, sector: Consumer}
+  - {symbol: APOLLOHOSP, sector: Healthcare}
+  - {symbol: TRENT,      sector: Retail}
+  - {symbol: POLYCAB,    sector: Cables & wires}
+  - {symbol: PERSISTENT, sector: IT services}
+  - {symbol: DIXON,      sector: Electronics manufacturing}
+  - {symbol: DEEPAKNTR,  sector: Chemicals}
+  - {symbol: CDSL,       sector: Capital markets}
+  - {symbol: KAYNES,     sector: Electronics manufacturing}
+  - {symbol: SUZLON,     sector: Wind energy}
+  - {symbol: HAPPSTMNDS, sector: IT services}
+
+# Companies to demo on-demand research on. PGEL is outside the portfolio on purpose.
+research: [POLYCAB, KAYNES, DEEPAKNTR, PGEL]
+
+# Build the promise ledger for every holding too (needed for credibility scores and
+# for "settles a promise" in the digest). Set to false if you hit free-tier limits.
+ledger_for_holdings: true
+
+alerts:
+  volume_multiple: 2.0     # volume above 2x its 20-session average
+  move_pct: 4.0            # absolute daily move in %
+  overrides:               # volatile names would alert every week at 4%
+    DIXON:      {move_pct: 7.0}
+    KAYNES:     {move_pct: 7.0}
+    SUZLON:     {move_pct: 7.0}
+    CDSL:       {move_pct: 7.0}
+    HAPPSTMNDS: {move_pct: 7.0}
+    TRENT:      {move_pct: 7.0}
+
+watched_categories:
+  - results
+  - management_change
+  - M&A
+  - fund_raise
+  - pledging
+  - insider_trading
+  - credit_rating
+  - litigation
+  - capex
+
+# How far back the pipeline fetches filings. The app lets you view 24h / 3d / 7d / 14d of it.
+lookback_days: 14
+
+# Pillars = why I own the stock, written so code can check them.
+# metric pillars: metric op value   (metrics: revenue_yoy, pat_yoy, ebitda_margin, pat_margin, cfo_to_pat)
+# event pillars:  any filing of this category puts the pillar at risk
+pillars:
+  POLYCAB:
+    - {id: pc-growth, label: Revenue keeps growing fast, type: metric, metric: revenue_yoy, op: ">=", value: 15}
+    - {id: pc-margin, label: Margins hold, type: metric, metric: ebitda_margin, op: ">=", value: 12}
+    - {id: pc-pledge, label: Promoter doesn't pledge, type: event, category: pledging}
+  DIXON:
+    - {id: dx-growth, label: Hyper-growth continues, type: metric, metric: revenue_yoy, op: ">=", value: 30}
+    - {id: dx-cash, label: Profits turn into cash, type: metric, metric: cfo_to_pat, op: ">=", value: 0.7}
+  KAYNES:
+    - {id: ky-growth, label: Hyper-growth continues, type: metric, metric: revenue_yoy, op: ">=", value: 30}
+    - {id: ky-wc, label: Working capital doesn't eat the profit, type: metric, metric: cfo_to_pat, op: ">=", value: 0.5}
+  HDFCBANK:
+    - {id: hb-pat, label: Earnings keep compounding, type: metric, metric: pat_yoy, op: ">=", value: 10}
+    - {id: hb-mgmt, label: Leadership stays stable, type: event, category: management_change}
+  TCS:
+    - {id: tc-margin, label: Margin moat holds, type: metric, metric: ebitda_margin, op: ">=", value: 25}
+    - {id: tc-growth, label: Revenue doesn't shrink, type: metric, metric: revenue_yoy, op: ">=", value: 0}
+  DEEPAKNTR:
+    - {id: dn-margin, label: Margins recover, type: metric, metric: ebitda_margin, op: ">=", value: 12}
+    - {id: dn-pledge, label: Promoter doesn't pledge, type: event, category: pledging}
