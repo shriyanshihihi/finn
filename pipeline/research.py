@@ -282,24 +282,33 @@ def bull_bear(sym: str, f: dict, L: dict, pillars: list[dict]) -> dict | None:
 
 # ---------------------------------------------------------------- main
 
-def build(sym: str, progress: Callable[[str], None] = lambda m: None, refresh: bool = False) -> dict:
+def build(sym: str, progress: Callable[[str], None] = lambda m: None, refresh: bool = False,
+          numbers_only: bool = False) -> dict:
+    """numbers_only skips everything that reads transcripts with a model (ledger, business,
+    bull/bear). Used for holdings when the free-tier time budget runs out; the page still
+    has the full numbers, and Research can build the rest live."""
     sym = sym.upper().strip()
     path = OUT / f"{sym}.json"
     if not refresh and path.exists():
         return read_json(path)
     f = fundamentals.get(sym, refresh=refresh)
     progress(f"Found {f['name']}: {len(f['quarterly'])} quarters, {len(f['transcripts'])} transcripts")
-    try:
-        L = promises.build(sym, progress=progress, refresh=refresh)
-    except llm.LLMUnavailable:
-        L = {"threads": [], "credibility": {}, "counts": {}, "summary": "", "transcripts": [],
-             "note": "Promise ledger needs a model key (GEMINI_API_KEY)."}
-    progress("Building snapshot, trajectory, balance sheet and cash quality")
     pillars = portfolio().get("pillars", {}).get(sym, [])
-    progress("Reading management's description of the business")
-    biz = business_snapshot(sym, f["name"])
-    progress("Writing bull and bear cases")
-    bb = bull_bear(sym, f, L, pillars)
+    if numbers_only:
+        L = {"threads": [], "credibility": {}, "counts": {}, "summary": "", "transcripts": [],
+             "note": "Promise ledger not built in this snapshot (free-tier time limit). Numbers below are complete."}
+        biz, bb = None, None
+    else:
+        try:
+            L = promises.build(sym, progress=progress, refresh=refresh)
+        except llm.LLMUnavailable:
+            L = {"threads": [], "credibility": {}, "counts": {}, "summary": "", "transcripts": [],
+                 "note": "Promise ledger needs a model key (GEMINI_API_KEY)."}
+        progress("Reading management's description of the business")
+        biz = business_snapshot(sym, f["name"])
+        progress("Writing bull and bear cases")
+        bb = bull_bear(sym, f, L, pillars)
+    progress("Building snapshot, trajectory, balance sheet and cash quality")
     out = {
         "symbol": sym, "company": f["name"], "as_of": iso(now_ist()), "view": f["view"],
         "company_type": f["company_type"], "screener_url": f["url"], "about": f.get("about", ""),

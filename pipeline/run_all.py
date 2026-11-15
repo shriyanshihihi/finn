@@ -8,6 +8,7 @@ Re-runs are cheap: every model answer is cached, so only new filings cost anythi
 from __future__ import annotations
 
 import argparse
+import os
 import csv
 import io
 import time
@@ -59,14 +60,23 @@ def main() -> None:
     classify.run()
 
     log("step", "5/6 company research + promise ledgers")
-    targets = research_set + ([s for s in holdings if s not in research_set] if cfg.get("ledger_for_holdings", True) else [])
+    # Research set first, then holdings. Full ledgers until the time budget runs out
+    # (free-tier model calls are slow); after that, holdings get numbers-only pages
+    # so every stock still has a company page.
+    full_for_holdings = cfg.get("ledger_for_holdings", True)
+    budget_s = float(os.environ.get("RESEARCH_BUDGET_MIN", "0") or 0) * 60
+    t_research = time.time()
+    targets = research_set + [s for s in holdings if s not in research_set]
     done, failed = [], []
     for sym in targets:
         if sym in fund["failed"]:
             failed.append(sym)
             continue
+        over_budget = budget_s and time.time() - t_research > budget_s
+        numbers_only = (sym not in research_set and not full_for_holdings) or bool(over_budget)
         try:
-            research.build(sym, progress=lambda m, s=sym: log("research", f"{s}: {m}"), refresh=not args.fast)
+            research.build(sym, progress=lambda m, s=sym: log("research", f"{s}: {m}"), refresh=not args.fast,
+                           numbers_only=numbers_only)
             done.append(sym)
         except Exception as e:
             failed.append(sym)

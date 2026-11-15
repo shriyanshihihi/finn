@@ -23,11 +23,11 @@ holdings:
   - {symbol: HAPPSTMNDS, sector: IT services}
 
 # Companies to demo on-demand research on. PGEL is outside the portfolio on purpose.
-research: [POLYCAB, KAYNES, DEEPAKNTR, PGEL]
+research: [POLYCAB, PGEL, KAYNES, DEEPAKNTR]
 
 # Build the promise ledger for every holding too (needed for credibility scores and
 # for "settles a promise" in the digest). Set to false if you hit free-tier limits.
-ledger_for_holdings: true
+ledger_for_holdings: false
 
 alerts:
   volume_multiple: 2.0     # volume above 2x its 20-session average
