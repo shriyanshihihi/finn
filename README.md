@@ -88,7 +88,8 @@ Every model answer is cached by *model + prompt version + input*, so re-running 
 ## Sources, rules and limits
 
 - **Primary sources only on the research side**: earnings-call transcripts, annual-report links and reported numbers. No news, broker notes or model memory. Every claim carries a page or a source.
-- **NSE often blocks cloud servers**, so the pipeline runs from a laptop and falls back to BSE when NSE refuses. In production this would run from a fixed, whitelisted server.
+- **NSE often blocks cloud servers.** It worked from GitHub's servers for this snapshot, and the pipeline falls back to BSE when NSE refuses. In production this would run from a fixed, whitelisted server.
+- **Free-tier models are slow** (about 2 minutes per transcript). So each snapshot builds full promise ledgers for the research set first, inside a 15-minute budget. Every other holding still gets a company page with all the numbers, and Research builds its ledger live.
 - **Numbers come from screener.in**, which compiles them from company filings. Consolidated figures first, standalone if a company has none.
 - **EBITDA** is operating profit before other income, as screener reports it. **Banks and NBFCs have no EBITDA**, so their card shows financing profit instead of a wrong number.
 - **Indian fiscal year**: FY27 = April 2026 to March 2027. Q2 FY27 = July to September 2026.
@@ -122,7 +123,7 @@ Tests run offline: `pytest -q`. `python tests/make_sample.py` builds a sample sn
 
 - **Web**: import the repo on Vercel, set the root directory to `web`, and set `NEXT_PUBLIC_API_URL` to the API's URL.
 - **API**: on Render, create a new Blueprint from this repo (`render.yaml`), and add `GEMINI_API_KEY`.
-- **Refresh the data**: run `python -m pipeline.run_all`, then commit `web/public/data` and push.
+- **Refresh the data**: either run `python -m pipeline.run_all` and push `web/public/data`, or let GitHub do it: the *Refresh data* workflow (Actions tab, "Run workflow") runs the whole pipeline on GitHub's servers and commits the snapshot. It needs `GEMINI_API_KEY` as a repo secret. Vercel redeploys on every push.
 
 ## Layout
 
