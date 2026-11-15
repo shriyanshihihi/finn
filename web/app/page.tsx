@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { useStore } from "@/components/Providers";
 import { FilingCard, MoveCard, QuoteSheet, RoutineGroup, Tier2Row, type QuoteOpen } from "@/components/cards";
 import { Card, Chip, Notice, SectionTitle, Skeleton } from "@/components/ui";
-import { buildDigest, type Win, type WindowKey } from "@/lib/engine";
+import { buildDigest, windowNote, type Win, type WindowKey } from "@/lib/engine";
 import { asOfLabel, istDate } from "@/lib/format";
 
 const WINDOWS: { key: WindowKey; label: string }[] = [
@@ -66,6 +66,9 @@ export default function Today() {
           </Chip>
         ))}
       </div>
+      {windowNote(win, meta.as_of) && (
+        <p className="mt-2 text-[12px] text-ink-3">{windowNote(win, meta.as_of)}</p>
+      )}
       {win.key === "custom" && (
         <div className="mt-3 flex items-center gap-2 text-[13px] text-ink-2">
           <input type="date" min={minDate} max={maxDate} value={win.from} onChange={(e) => setWin({ ...win, from: e.target.value })}

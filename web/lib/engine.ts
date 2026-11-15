@@ -45,16 +45,52 @@ const RANK: Record<ReasonKind, number> = {
   "pillar-broken": 0, orphan: 1, promise: 2, unexplained: 3, "pillar-risk": 4, "pillar-holds": 5, watched: 6, transcript: 7,
 };
 
+const H = 3600000;
+const IST = 5.5 * H;
+
+/** Go back `hours` from `end`, but only count weekday hours (IST).
+ *  Markets are shut on Saturday and Sunday, so "24h" checked on a Sunday
+ *  evening should still show Friday's filings, not an empty screen. */
+function backWeekdayHours(end: number, hours: number): number {
+  let t = end;
+  let left = hours * H;
+  while (left > 0) {
+    const d = new Date(t - 1 + IST);
+    const dayStart = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()) - IST;
+    const weekend = d.getUTCDay() === 0 || d.getUTCDay() === 6;
+    if (!weekend) {
+      const span = t - dayStart;
+      if (span >= left) return t - left;
+      left -= span;
+    }
+    t = dayStart;
+  }
+  return t;
+}
+
 export function windowStart(w: Win, asOf: string): number {
   const end = new Date(asOf).getTime();
-  const h = 3600000;
   switch (w.key) {
-    case "24h": return end - 24 * h;
-    case "3d": return end - 72 * h;
-    case "7d": return end - 168 * h;
-    case "14d": return end - 336 * h;
-    case "custom": return w.from ? new Date(w.from + "T00:00:00+05:30").getTime() : end - 24 * h;
+    case "24h": return backWeekdayHours(end, 24);
+    case "3d": return backWeekdayHours(end, 72);
+    case "7d": return end - 168 * H;
+    case "14d": return end - 336 * H;
+    case "custom": return w.from ? new Date(w.from + "T00:00:00+05:30").getTime() : backWeekdayHours(end, 24);
   }
+}
+
+/** When a short window had to reach past a weekend, say so, so nobody wonders
+ *  why "24h" shows Friday's filings. */
+export function windowNote(w: Win, asOf: string): string | null {
+  const plain = { "24h": 24, "3d": 72 } as Record<string, number>;
+  if (!(w.key in plain)) return null;
+  const end = new Date(asOf).getTime();
+  const start = windowStart(w, asOf);
+  if (end - start <= plain[w.key] * H) return null;
+  const from = new Date(start).toLocaleString("en-IN", {
+    timeZone: "Asia/Kolkata", weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", hour12: false,
+  });
+  return `Weekend hours don't count, so this covers ${from} to now.`;
 }
 
 function windowEnd(w: Win, asOf: string): number {

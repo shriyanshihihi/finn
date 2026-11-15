@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-15T18:55:41+05:30",
+ "as_of": "2026-11-15T19:05:23+05:30",
  "items": [
   {
    "id": "nse-s3",
@@ -423,9 +423,9 @@
    "subject": "Schedule of analyst / institutional investor meetings",
    "url": "https://example.com/sample/nse-r24.pdf",
    "source": "nse",
-   "category": "earnings_call",
+   "category": "investor_meetings",
    "material": false,
-   "rule": "earnings call|conference call|con\\. ?call|concall|investor call",
+   "rule": "analyst|institutional investor|investor meet|investors meet|investor conference|roadshow|one-on-one",
    "classified_by": "rule",
    "promise_links": {}
   },
@@ -438,9 +438,9 @@
    "subject": "Schedule of analyst / institutional investor meetings",
    "url": "https://example.com/sample/nse-r14.pdf",
    "source": "nse",
-   "category": "earnings_call",
+   "category": "investor_meetings",
    "material": false,
-   "rule": "earnings call|conference call|con\\. ?call|concall|investor call",
+   "rule": "analyst|institutional investor|investor meet|investors meet|investor conference|roadshow|one-on-one",
    "classified_by": "rule",
    "promise_links": {}
   },
@@ -453,9 +453,9 @@
    "subject": "Schedule of analyst / institutional investor meetings",
    "url": "https://example.com/sample/nse-r4.pdf",
    "source": "nse",
-   "category": "earnings_call",
+   "category": "investor_meetings",
    "material": false,
-   "rule": "earnings call|conference call|con\\. ?call|concall|investor call",
+   "rule": "analyst|institutional investor|investor meet|investors meet|investor conference|roadshow|one-on-one",
    "classified_by": "rule",
    "promise_links": {}
   },

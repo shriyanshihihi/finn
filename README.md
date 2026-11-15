@@ -94,6 +94,7 @@ Every model answer is cached by *model + prompt version + input*, so re-running 
 - **Indian fiscal year**: FY27 = April 2026 to March 2027. Q2 FY27 = July to September 2026.
 - **Scanned transcripts** (images, no text) are skipped and marked, not OCR'd.
 - **Prices are end of day.** Alerts show up in the app; they are not phone push notifications.
+- **Weekends don't count in short windows.** "24h" and "3 days" only count weekday hours, so on a Sunday or Monday morning you still see Friday's filings instead of an empty screen. The app says when this happens. Market holidays are not handled yet.
 
 ---
 
