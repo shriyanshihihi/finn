@@ -66,3 +66,45 @@ def test_quote_check():
     assert quote_found("We are targeting 14% EBITDA margin by FY28.", pages, 2) == 2
     assert quote_found("We are targeting 14% EBITDA margin by FY28.", pages, 3) == 2
     assert quote_found("We will triple revenue next year.", pages, 2) is None
+
+
+def test_filing_rules_on_real_exchange_wording():
+    from pipeline.classify import Rules
+
+    r = Rules()
+    kmp = "Change in Directors/ Key Managerial Personnel/ Auditor/ Compliance Officer/ Share Transfer Agent"
+    cases = [
+        # NSE's catch-all label must not make a CFO exit look routine
+        ({"exchange_category": kmp, "subject": "ACME Ltd has informed the Exchange about resignation of Mr. A Rao, Chief Financial Officer"},
+         ("management_change", True)),
+        ({"exchange_category": kmp, "subject": "ACME Ltd has informed the Exchange about appointment of Ms. B Iyer as Company Secretary"},
+         ("management_change", False)),
+        ({"exchange_category": kmp, "subject": "ACME Ltd has informed the Exchange about appointment of M/s XYZ & Co as Statutory Auditor"},
+         ("unclassified", False)),
+        ({"exchange_category": "Board Meeting Intimation",
+          "subject": "ACME Ltd has informed the Exchange about Board Meeting to be held on 12-Nov-2026 to consider unaudited financial results"},
+         ("results", False)),
+        ({"exchange_category": "Financial Result Updates", "subject": "ACME Ltd has submitted unaudited financial results for the quarter ended September 30, 2026"},
+         ("results", True)),
+        ({"exchange_category": "Analysts/Institutional Investor Meet/Con. Call Updates",
+          "subject": "ACME Ltd has informed the Exchange about Transcript of the earnings call held on 13-Nov-2026"},
+         ("earnings_call", True)),
+        ({"exchange_category": "Analysts/Institutional Investor Meet/Con. Call Updates",
+          "subject": "ACME Ltd has informed the Exchange about schedule of meeting with institutional investors"},
+         ("investor_meetings", False)),
+        ({"exchange_category": "Credit Rating", "subject": "CRISIL has reaffirmed the rating of ACME Ltd at AA+/Stable"},
+         ("credit_rating", False)),
+        ({"exchange_category": "Credit Rating", "subject": "ICRA has upgraded the long-term rating to AA+"},
+         ("credit_rating", True)),
+        ({"exchange_category": "Updates", "subject": "ACME Ltd has received an order worth Rs 1,250 crore from NHAI"},
+         ("press_release", True)),
+        ({"exchange_category": "Updates", "subject": "ACME Ltd launches new product range"},
+         ("press_release", False)),
+        ({"exchange_category": "Copy of Newspaper Publication", "subject": "Newspaper publication of financial results"},
+         ("unclassified", False)),
+        ({"exchange_category": "Disclosure under SEBI Takeover Regulations", "subject": "Disclosure of encumbrance of shares by promoter"},
+         ("pledging", True)),
+    ]
+    for item, want in cases:
+        got = r.match(item)
+        assert got is not None and got[:2] == want, (item["subject"], got)

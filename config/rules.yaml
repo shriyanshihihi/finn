@@ -3,6 +3,14 @@
 # `material: false` means the filing is routine paperwork and gets collapsed in the app.
 # Anything no rule matches goes to the cheap model in one batched call.
 
+# NSE files every leadership change under one long label that lists all the options
+# ("...Auditor/ Compliance Officer/ Share Transfer Agent"). Left as it is, the words
+# "compliance officer" would make a CFO resignation look like routine paperwork.
+# These rewrites run on the exchange category before the rules below.
+rewrite:
+  - {from: 'change in directors?\s*/\s*key managerial personnel.*', to: 'change in directorate'}
+  - {from: 'analysts\s*/\s*institutional investor meet\s*/\s*con\.?\s*call updates', to: 'investor update'}
+
 rules:
   # --- routine paperwork first, so words like "acquisition" inside them don't mislead later rules
   - {match: 'trading window', category: unclassified, material: false}

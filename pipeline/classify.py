@@ -53,11 +53,20 @@ class Rules:
     def __init__(self):
         cfg = load_yaml("rules.yaml")
         self.rules = [(re.compile(r["match"], re.I), r["category"], r["material"], r["match"]) for r in cfg["rules"]]
+        self.rewrites = [(re.compile(r["from"], re.I), r["to"]) for r in cfg.get("rewrite", [])]
         self.value = re.compile(cfg["value_pattern"], re.I)
         self.default_material = cfg["default_material"]
 
+    def text_of(self, item: dict) -> str:
+        cat = item.get("exchange_category", "") or ""
+        # some exchange categories are catch-all labels that name every possibility at once;
+        # swap them for a neutral word so the subject line decides
+        for rx, to in self.rewrites:
+            cat = rx.sub(to, cat)
+        return f"{cat} | {item.get('subject', '')}".lower()
+
     def match(self, item: dict) -> tuple[str, bool, str] | None:
-        text = f"{item.get('exchange_category', '')} | {item.get('subject', '')}".lower()
+        text = self.text_of(item)
         for rx, cat, material, src in self.rules:
             if rx.search(text):
                 if material == "value":
