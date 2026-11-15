@@ -2,7 +2,7 @@
 
 A phone-first investing assistant that only interrupts you when something should change what you believe about a stock you own.
 
-**Live app:** `<add your Vercel link>` · open it on your phone, then *Add to Home Screen*.
+**Live app:** https://finn-six-eta.vercel.app · open it on your phone, then *Add to Home Screen*.
 
 ---
 
