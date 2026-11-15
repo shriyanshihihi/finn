@@ -12,7 +12,7 @@ import math
 import pandas as pd
 import yfinance as yf
 
-from .common import DATA, iso, log, now_ist, portfolio, write_json
+from .common import DATA, iso, log, now_ist, polite, portfolio, write_json
 
 KEEP = 30
 AVG_WINDOW = 20
@@ -75,6 +75,7 @@ def run() -> dict:
             out["failed"].append(sym)
             log("prices", f"{sym}: no data, skipped")
             continue
+        polite(0.3, 0.8)
         series = metrics_from_frame(df)
         ov = alerts.get("overrides", {}).get(sym, {})
         vm = ov.get("volume_multiple", alerts["volume_multiple"])

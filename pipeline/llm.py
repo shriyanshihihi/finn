@@ -116,7 +116,9 @@ def _groq(model: str, key: str, prompt: str, system: str | None, json_mode: bool
 
 
 class _Retryable(LLMError):
-    pass
+    def __init__(self, msg: str, wait: float | None = None):
+        super().__init__(msg)
+        self.wait = wait
 
 
 def _http_error(r: requests.Response) -> LLMError:
@@ -124,8 +126,24 @@ def _http_error(r: requests.Response) -> LLMError:
     if r.status_code == 404:
         msg += "  -> model name not found; put a current model name in config/models.yaml"
     if r.status_code in (429, 500, 502, 503, 504):
-        return _Retryable(msg)
+        # Gemini says how long to wait: "retryDelay": "37s"
+        m = re.search(r'"retryDelay":\s*"(\d+(?:\.\d+)?)s"', r.text) or re.search(r"try again in (\d+(?:\.\d+)?)s", r.text)
+        if "quota" in r.text.lower() and "perday" in r.text.lower().replace(" ", "").replace("_", ""):
+            return LLMError(msg + "  -> daily free quota used up for this model")
+        return _Retryable(msg, float(m.group(1)) + 1 if m else None)
     return LLMError(msg)
+
+
+_last_call: dict[str, float] = {}
+
+
+def _pace(model: str, min_interval: float) -> None:
+    """Free tiers allow only a few requests a minute; space calls out instead of failing."""
+    with _lock:
+        wait = _last_call.get(model, 0) + min_interval - time.time()
+        _last_call[model] = max(time.time(), _last_call.get(model, 0) + min_interval)
+    if wait > 0:
+        time.sleep(wait)
 
 
 _PROVIDERS = {"gemini": _gemini, "groq": _groq}
@@ -199,6 +217,7 @@ def call(
         p = prompt
         for attempt in range(5):
             try:
+                _pace(model, spec.get("min_interval_s", 0))
                 text, tin, tout = _PROVIDERS[provider](model, key, p, system, json_mode)
                 inr = tin / 1e6 * spec.get("inr_per_1m_input", 0) + tout / 1e6 * spec.get("inr_per_1m_output", 0)
                 _log_cost({"ts": iso(now_ist()), "step": step, "tier": tier, "model": model,
@@ -221,7 +240,7 @@ def call(
                 return out
             except _Retryable as e:
                 last_err = e
-                wait = 2 ** (attempt + 1)
+                wait = min(e.wait or 2 ** (attempt + 2), 90)
                 log("llm", f"{model} busy ({str(e)[:60]}), retry in {wait}s")
                 time.sleep(wait)
             except (LLMError, requests.RequestException) as e:

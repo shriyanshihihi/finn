@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-15T16:20:43+05:30",
+ "as_of": "2026-11-15T16:34:52+05:30",
  "sample": true,
  "lookback_days": 14,
  "classify": {
@@ -23,14 +23,14 @@
     "cache_hits": 0,
     "inr": 0.08,
     "tokens": 1014,
-    "model": "gemini-2.5-flash"
+    "model": "gemini-flash-latest"
    },
    "promise_extract": {
     "calls": 8,
     "cache_hits": 0,
     "inr": 0.32,
     "tokens": 4732,
-    "model": "gemini-2.5-flash"
+    "model": "gemini-flash-latest"
    },
    "promise_verdicts": {
     "calls": 2,
@@ -44,7 +44,7 @@
     "cache_hits": 0,
     "inr": 0.05,
     "tokens": 607,
-    "model": "gemini-2.5-flash"
+    "model": "gemini-flash-latest"
    },
    "bull_bear": {
     "calls": 2,
@@ -58,12 +58,12 @@
     "cache_hits": 0,
     "inr": 0.03,
     "tokens": 291,
-    "model": "gemini-2.5-flash"
+    "model": "gemini-flash-latest"
    }
   }
  },
  "models": {
-  "cheap": "gemini-2.5-flash",
+  "cheap": "gemini-flash-latest",
   "strong": "gemini-2.5-pro",
   "fallback": "llama-3.3-70b-versatile"
  },

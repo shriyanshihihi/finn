@@ -7,21 +7,24 @@
 
 cheap:          # bulk work: leftover classification, one-line summaries, promise extraction
   provider: gemini
-  model: gemini-2.5-flash
+  model: gemini-flash-latest     # alias that always points at the current Flash model
   inr_per_1m_input: 26
   inr_per_1m_output: 220
+  min_interval_s: 6.5            # free tier allows ~10 requests a minute
 
 strong:         # judgment only: promise verdicts that code can't settle, bull vs bear
   provider: gemini
-  model: gemini-2.5-pro
+  model: gemini-2.5-pro          # if this name is retired, the chain falls back to the cheap model
   inr_per_1m_input: 110
   inr_per_1m_output: 880
+  min_interval_s: 13
 
 fallback:       # used when the cheap model is rate-limited or down
   provider: groq
   model: llama-3.3-70b-versatile
   inr_per_1m_input: 52
   inr_per_1m_output: 70
+  min_interval_s: 3
 
 # bump this when you change a prompt, so old cached answers are not reused
 prompt_version: 1
