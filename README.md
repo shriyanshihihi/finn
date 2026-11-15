@@ -122,7 +122,7 @@ Tests run offline: `pytest -q`. `python tests/make_sample.py` builds a sample sn
 ## Deploy
 
 - **Web**: import the repo on Vercel, set the root directory to `web`, and set `NEXT_PUBLIC_API_URL` to the API's URL.
-- **API**: on Render, create a new Blueprint from this repo (`render.yaml`), and add `GEMINI_API_KEY`.
+- **API**: on Render, create a new Blueprint from this repo (`render.yaml`), and add `GEMINI_API_KEY`. *Not deployed for this submission:* on the free model tier a live research run takes 15+ minutes per company, so the deployed app uses precomputed companies, and Research says so in one line when the API isn't set.
 - **Refresh the data**: either run `python -m pipeline.run_all` and push `web/public/data`, or let GitHub do it: the *Refresh data* workflow (Actions tab, "Run workflow") runs the whole pipeline on GitHub's servers and commits the snapshot. It needs `GEMINI_API_KEY` as a repo secret. Vercel redeploys on every push.
 
 ## Layout
