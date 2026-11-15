@@ -1,0 +1,8 @@
+{"ts": "2026-11-15T22:38:12+05:30", "step": "classify", "tier": "cheap", "model": "gemini-flash-latest", "in_tok": 432, "out_tok": 777, "inr": 0.1822, "cache_hit": false}
+{"ts": "2026-11-15T22:38:47+05:30", "step": "summaries", "tier": "cheap", "model": "gemini-flash-latest", "in_tok": 6960, "out_tok": 1982, "inr": 0.617, "cache_hit": false}
+{"ts": "2026-11-15T22:39:06+05:30", "step": "summaries", "tier": "cheap", "model": "gemini-flash-latest", "in_tok": 6845, "out_tok": 1589, "inr": 0.5275, "cache_hit": false}
+{"ts": "2026-11-15T22:40:06+05:30", "step": "summaries", "tier": "cheap", "model": "gemini-flash-latest", "in_tok": 7209, "out_tok": 2081, "inr": 0.6453, "cache_hit": false}
+{"ts": "2026-11-15T22:41:19+05:30", "step": "summaries", "tier": "cheap", "model": "gemini-flash-latest", "in_tok": 7055, "out_tok": 1957, "inr": 0.614, "cache_hit": false}
+{"ts": "2026-11-15T22:42:39+05:30", "step": "promise_extract", "tier": "cheap", "model": "gemini-flash-latest", "in_tok": 4482, "out_tok": 3989, "inr": 0.9941, "cache_hit": false}
+{"ts": "2026-11-15T22:43:40+05:30", "step": "promise_extract", "tier": "cheap", "model": "gemini-flash-latest", "in_tok": 4622, "out_tok": 3537, "inr": 0.8983, "cache_hit": false}
+{"ts": "2026-11-15T22:45:29+05:30", "step": "promise_extract", "tier": "cheap", "model": "gemini-flash-latest", "in_tok": 4448, "out_tok": 4862, "inr": 1.1853, "cache_hit": false}
