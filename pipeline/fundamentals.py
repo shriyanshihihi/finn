@@ -51,7 +51,7 @@ class ScreenerError(RuntimeError):
 
 def _fetch(sym: str, view: str, s=None) -> str:
     HTML_DIR.mkdir(parents=True, exist_ok=True)
-    path = HTML_DIR / f"{sym}-{view or 'standalone'}.html"
+    path = HTML_DIR / f"{sym}-{view.strip('/') or 'standalone'}.html"
     if path.exists() and time.time() - path.stat().st_mtime < MAX_AGE_S:
         return path.read_text()
     s = s or session(referer="https://www.screener.in/")
