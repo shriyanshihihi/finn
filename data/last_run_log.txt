@@ -1,0 +1,91 @@
+
+!! No GEMINI_API_KEY / GROQ_API_KEY in .env. Rules, prices and numbers will work; summaries, promise ledgers and bull/bear will be skipped.
+
+[16:54:03] step          1/6 prices
+
+symbol           close   chg %  vol x  breach
+RELIANCE       1339.70    0.00   0.63  
+HDFCBANK        804.00   -1.02   0.59  
+BAJFINANCE     1117.00    0.18   1.18  
+TCS            2407.50   -1.43   0.63  
+ITC             285.00    0.33   0.41  
+LT             4143.80   -0.37   0.64  
+SUNPHARMA      1880.00   -0.27   0.88  
+ASIANPAINT     2550.00    0.53   0.56  
+APOLLOHOSP     8526.00    0.13   1.08  
+TRENT          3165.20   -0.47   0.57  
+POLYCAB        7904.00   -2.18   1.10  
+PERSISTENT     6003.00   -0.45   0.44  
+DIXON         12798.00   -1.49   0.50  
+DEEPAKNTR      1594.40   -1.90   0.25  
+CDSL           1447.00   -0.55   2.01  YES
+KAYNES         3430.00   -1.55   0.87  
+SUZLON           38.25   -1.57   0.55  
+HAPPSTMNDS      313.45   -1.20   0.37  
+[16:54:15] step          2/6 fundamentals from screener.in
+[16:54:16] fundamentals  RELIANCE: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/RELIANCE-consolidated/.html'
+[16:54:17] fundamentals  HDFCBANK: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/HDFCBANK-consolidated/.html'
+[16:54:17] fundamentals  BAJFINANCE: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/BAJFINANCE-consolidated/.html'
+[16:54:17] fundamentals  TCS: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/TCS-consolidated/.html'
+[16:54:17] fundamentals  ITC: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/ITC-consolidated/.html'
+[16:54:18] fundamentals  LT: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/LT-consolidated/.html'
+[16:54:18] fundamentals  SUNPHARMA: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/SUNPHARMA-consolidated/.html'
+[16:54:18] fundamentals  ASIANPAINT: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/ASIANPAINT-consolidated/.html'
+[16:54:18] fundamentals  APOLLOHOSP: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/APOLLOHOSP-consolidated/.html'
+[16:54:19] fundamentals  TRENT: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/TRENT-consolidated/.html'
+[16:54:19] fundamentals  POLYCAB: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/POLYCAB-consolidated/.html'
+[16:54:19] fundamentals  PERSISTENT: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/PERSISTENT-consolidated/.html'
+[16:54:19] fundamentals  DIXON: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/DIXON-consolidated/.html'
+[16:54:20] fundamentals  DEEPAKNTR: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/DEEPAKNTR-consolidated/.html'
+[16:54:20] fundamentals  CDSL: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/CDSL-consolidated/.html'
+[16:54:20] fundamentals  KAYNES: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/KAYNES-consolidated/.html'
+[16:54:20] fundamentals  SUZLON: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/SUZLON-consolidated/.html'
+[16:54:21] fundamentals  HAPPSTMNDS: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/HAPPSTMNDS-consolidated/.html'
+[16:54:21] fundamentals  PGEL: FAILED [Errno 2] No such file or directory: '/home/runner/work/finn/finn/data/raw/screener/PGEL-consolidated/.html'
+[16:54:21] step          3/6 announcements
+[16:54:24] announcements RELIANCE: 5 via nse
+[16:54:26] announcements HDFCBANK: 5 via nse
+[16:54:27] announcements BAJFINANCE: 6 via nse
+[16:54:29] announcements TCS: 3 via nse
+[16:54:30] announcements ITC: 6 via nse
+[16:54:32] announcements LT: 5 via nse
+[16:54:34] announcements SUNPHARMA: 5 via nse
+[16:54:35] announcements ASIANPAINT: 5 via nse
+[16:54:36] announcements APOLLOHOSP: 7 via nse
+[16:54:38] announcements TRENT: 4 via nse
+[16:54:39] announcements POLYCAB: 2 via nse
+[16:54:40] announcements PERSISTENT: 3 via nse
+[16:54:42] announcements DIXON: 4 via nse
+[16:54:43] announcements DEEPAKNTR: 1 via nse
+[16:54:45] announcements CDSL: 9 via nse
+[16:54:46] announcements KAYNES: 10 via nse
+[16:54:48] announcements SUZLON: 4 via nse
+[16:54:50] announcements HAPPSTMNDS: 10 via nse
+[16:54:51] step          4/6 classify
+[16:54:51] classify      LLM pass skipped: no API key set (GEMINI_API_KEY or GROQ_API_KEY in .env)
+[16:55:08] classify      summaries skipped: no API key set (GEMINI_API_KEY or GROQ_API_KEY in .env)
+
+94 filings: 87 by rules, 0 by model, 7 unsure, 29 material
+  APOLLOHOSP earnings_call     M  'Apollo Hospitals Enterprise Limited has informed the Exchang'  <- transcript
+  SUNPHARMA  press_release     -  'The Exchange has sought clarification from Sun Pharmaceutica'  <- press release|media release|order|contra
+  BAJFINANCE fund_raise        M  'Bajaj Finance Limited has informed the Exchange about outcom'  <- qualified institutional|\bqip\b|rights i
+  TCS        unclassified      -  'Tata Consultancy Services Limited has informed the Exchange '  <- newspaper|publication of|advertisement
+  PERSISTENT unclassified      -  'Persistent Systems Limited has informed the Exchange regardi'  <- no rule matched
+  ASIANPAINT management_change M  'Asian Paints Limited has informed the Exchange regarding App'  <- change in directorate|change in manageme
+  CDSL       investor_meetings -  'CDSL has informed the Exchange about Schedule of Analyst Cal'  <- analyst|institutional investor|investor 
+  DEEPAKNTR  earnings_call     M  'Deepak Nitrite Limited has informed the Exchange about Trans'  <- transcript
+  ASIANPAINT agm_egm           -  'Please find enclosed the following: 1. Voting results of pos'  <- annual general meeting|\bagm\b|extra-?or
+  POLYCAB    unclassified      -  'Polycab India Limited has informed the Exchange regarding Al'  <- esop|esos|esps|employee stock|allotment 
+[16:55:08] step          5/6 company research + promise ledgers
+[16:55:08] step          6/6 digest + export
+[16:55:08] symbols       2635 NSE symbols
+[16:55:08] digest        94 filings, 18 holdings, 0 company pages written to web/public/data
+
+================================================================
+as of        2026-11-15T22:25:08+05:30
+filings      94 total, 87 classified by rules, 0 by model, 29 material
+research     0 companies ok, failed: POLYCAB, KAYNES, DEEPAKNTR, PGEL, RELIANCE, HDFCBANK, BAJFINANCE, TCS, ITC, LT, SUNPHARMA, ASIANPAINT, APOLLOHOSP, TRENT, PERSISTENT, DIXON, CDSL, SUZLON, HAPPSTMNDS
+model use    0 calls, 0 cache hits, ~Rs 0.00 at paid rates
+took         65s
+================================================================
+Next: cd web && npm run dev   (or commit web/public/data and push to deploy)

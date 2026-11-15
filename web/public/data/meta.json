@@ -1,66 +1,23 @@
 {
- "as_of": "2026-11-15T19:05:23+05:30",
- "sample": true,
+ "as_of": "2026-11-15T22:25:08+05:30",
+ "sample": false,
  "lookback_days": 14,
  "classify": {
-  "total": 38,
-  "by_rules": 38,
+  "total": 94,
+  "by_rules": 87,
   "by_model": 0,
-  "fallback": 0,
-  "material": 12
+  "fallback": 7,
+  "material": 29
  },
  "cost": {
   "total": {
-   "calls": 17,
+   "calls": 0,
    "cache_hits": 0,
-   "inr": 1.31,
-   "in_tok": 7191,
-   "out_tok": 2283
+   "inr": 0.0,
+   "in_tok": 0,
+   "out_tok": 0
   },
-  "by_step": {
-   "summaries": {
-    "calls": 2,
-    "cache_hits": 0,
-    "inr": 0.08,
-    "tokens": 1014,
-    "model": "gemini-flash-latest"
-   },
-   "promise_extract": {
-    "calls": 8,
-    "cache_hits": 0,
-    "inr": 0.32,
-    "tokens": 4732,
-    "model": "gemini-flash-latest"
-   },
-   "promise_verdicts": {
-    "calls": 2,
-    "cache_hits": 0,
-    "inr": 0.22,
-    "tokens": 1184,
-    "model": "gemini-2.5-pro"
-   },
-   "business_snapshot": {
-    "calls": 2,
-    "cache_hits": 0,
-    "inr": 0.05,
-    "tokens": 607,
-    "model": "gemini-flash-latest"
-   },
-   "bull_bear": {
-    "calls": 2,
-    "cache_hits": 0,
-    "inr": 0.61,
-    "tokens": 1646,
-    "model": "gemini-2.5-pro"
-   },
-   "mgmt_change": {
-    "calls": 1,
-    "cache_hits": 0,
-    "inr": 0.03,
-    "tokens": 291,
-    "model": "gemini-flash-latest"
-   }
-  }
+  "by_step": {}
  },
  "models": {
   "cheap": "gemini-flash-latest",

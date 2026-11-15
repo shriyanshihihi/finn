@@ -1,61 +1,134 @@
 {
  "holdings": [
   {
-   "symbol": "NORTHWIND",
-   "sector": "Cables & wires",
-   "name": "Northwind Cables Ltd (sample)"
+   "symbol": "RELIANCE",
+   "sector": "Conglomerate",
+   "name": "RELIANCE"
   },
   {
-   "symbol": "KESTREL",
-   "sector": "Electronics manufacturing",
-   "name": "Kestrel Electronics Ltd (sample)"
+   "symbol": "HDFCBANK",
+   "sector": "Bank",
+   "name": "HDFCBANK"
   },
   {
-   "symbol": "HARBOUR",
+   "symbol": "BAJFINANCE",
    "sector": "NBFC",
-   "name": "Harbour Finance Ltd (sample)"
+   "name": "BAJFINANCE"
   },
   {
-   "symbol": "SUMMIT",
-   "sector": "Pharma",
-   "name": "Summit Pharma Ltd (sample)"
-  },
-  {
-   "symbol": "BLUEPEAK",
-   "sector": "Consumer",
-   "name": "Bluepeak Paints Ltd (sample)"
-  },
-  {
-   "symbol": "ORBIT",
+   "symbol": "TCS",
    "sector": "IT services",
-   "name": "Orbit Infotech Ltd (sample)"
+   "name": "TCS"
   },
   {
-   "symbol": "TALLGRASS",
+   "symbol": "ITC",
    "sector": "FMCG",
-   "name": "Tallgrass Foods Ltd (sample)"
+   "name": "ITC"
   },
   {
-   "symbol": "IRONBRIDGE",
+   "symbol": "LT",
    "sector": "Capital goods",
-   "name": "Ironbridge Engineering Ltd (sample)"
+   "name": "LT"
+  },
+  {
+   "symbol": "SUNPHARMA",
+   "sector": "Pharma",
+   "name": "SUNPHARMA"
+  },
+  {
+   "symbol": "ASIANPAINT",
+   "sector": "Consumer",
+   "name": "ASIANPAINT"
+  },
+  {
+   "symbol": "APOLLOHOSP",
+   "sector": "Healthcare",
+   "name": "APOLLOHOSP"
+  },
+  {
+   "symbol": "TRENT",
+   "sector": "Retail",
+   "name": "TRENT"
+  },
+  {
+   "symbol": "POLYCAB",
+   "sector": "Cables & wires",
+   "name": "POLYCAB"
+  },
+  {
+   "symbol": "PERSISTENT",
+   "sector": "IT services",
+   "name": "PERSISTENT"
+  },
+  {
+   "symbol": "DIXON",
+   "sector": "Electronics manufacturing",
+   "name": "DIXON"
+  },
+  {
+   "symbol": "DEEPAKNTR",
+   "sector": "Chemicals",
+   "name": "DEEPAKNTR"
+  },
+  {
+   "symbol": "CDSL",
+   "sector": "Capital markets",
+   "name": "CDSL"
+  },
+  {
+   "symbol": "KAYNES",
+   "sector": "Electronics manufacturing",
+   "name": "KAYNES"
+  },
+  {
+   "symbol": "SUZLON",
+   "sector": "Wind energy",
+   "name": "SUZLON"
+  },
+  {
+   "symbol": "HAPPSTMNDS",
+   "sector": "IT services",
+   "name": "HAPPSTMNDS"
   }
  ],
  "research": [
   {
-   "symbol": "NORTHWIND",
-   "name": "Northwind Cables Ltd (sample)"
+   "symbol": "POLYCAB",
+   "name": "POLYCAB"
   },
   {
-   "symbol": "KESTREL",
-   "name": "Kestrel Electronics Ltd (sample)"
+   "symbol": "KAYNES",
+   "name": "KAYNES"
+  },
+  {
+   "symbol": "DEEPAKNTR",
+   "name": "DEEPAKNTR"
+  },
+  {
+   "symbol": "PGEL",
+   "name": "PGEL"
   }
  ],
  "alerts": {
   "volume_multiple": 2.0,
   "move_pct": 4.0,
   "overrides": {
-   "KESTREL": {
+   "DIXON": {
+    "move_pct": 7.0
+   },
+   "KAYNES": {
+    "move_pct": 7.0
+   },
+   "SUZLON": {
+    "move_pct": 7.0
+   },
+   "CDSL": {
+    "move_pct": 7.0
+   },
+   "HAPPSTMNDS": {
+    "move_pct": 7.0
+   },
+   "TRENT": {
     "move_pct": 7.0
    }
   }
@@ -72,9 +145,9 @@
   "capex"
  ],
  "pillars": {
-  "NORTHWIND": [
+  "POLYCAB": [
    {
-    "id": "nw-growth",
+    "id": "pc-growth",
     "label": "Revenue keeps growing fast",
     "type": "metric",
     "metric": "revenue_yoy",
@@ -82,23 +155,31 @@
     "value": 15
    },
    {
-    "id": "nw-margin",
-    "label": "Margins hold at 14%",
+    "id": "pc-margin",
+    "label": "Margins hold",
     "type": "metric",
     "metric": "ebitda_margin",
     "op": ">=",
-    "value": 14
+    "value": 12
    },
    {
-    "id": "nw-pledge",
+    "id": "pc-pledge",
     "label": "Promoter doesn't pledge",
     "type": "event",
     "category": "pledging"
    }
   ],
-  "KESTREL": [
+  "DIXON": [
    {
-    "id": "ks-cash",
+    "id": "dx-growth",
+    "label": "Hyper-growth continues",
+    "type": "metric",
+    "metric": "revenue_yoy",
+    "op": ">=",
+    "value": 30
+   },
+   {
+    "id": "dx-cash",
     "label": "Profits turn into cash",
     "type": "metric",
     "metric": "cfo_to_pat",
@@ -106,7 +187,25 @@
     "value": 0.7
    }
   ],
-  "HARBOUR": [
+  "KAYNES": [
+   {
+    "id": "ky-growth",
+    "label": "Hyper-growth continues",
+    "type": "metric",
+    "metric": "revenue_yoy",
+    "op": ">=",
+    "value": 30
+   },
+   {
+    "id": "ky-wc",
+    "label": "Working capital doesn't eat the profit",
+    "type": "metric",
+    "metric": "cfo_to_pat",
+    "op": ">=",
+    "value": 0.5
+   }
+  ],
+  "HDFCBANK": [
    {
     "id": "hb-pat",
     "label": "Earnings keep compounding",
@@ -122,9 +221,35 @@
     "category": "management_change"
    }
   ],
-  "TALLGRASS": [
+  "TCS": [
    {
-    "id": "tg-pledge",
+    "id": "tc-margin",
+    "label": "Margin moat holds",
+    "type": "metric",
+    "metric": "ebitda_margin",
+    "op": ">=",
+    "value": 25
+   },
+   {
+    "id": "tc-growth",
+    "label": "Revenue doesn't shrink",
+    "type": "metric",
+    "metric": "revenue_yoy",
+    "op": ">=",
+    "value": 0
+   }
+  ],
+  "DEEPAKNTR": [
+   {
+    "id": "dn-margin",
+    "label": "Margins recover",
+    "type": "metric",
+    "metric": "ebitda_margin",
+    "op": ">=",
+    "value": 12
+   },
+   {
+    "id": "dn-pledge",
     "label": "Promoter doesn't pledge",
     "type": "event",
     "category": "pledging"
